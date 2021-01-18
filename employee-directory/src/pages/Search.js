@@ -1,35 +1,47 @@
 import React, { Component } from "react";
 import Container from "../components/Container/Container";
-import SearchForm from "../components/SearchForm/SearchForm";
-import SearchResults from "../components/SearchResults/SearchResults";
-import Row from "../components/Row/Row";
-import Col from "../components/Col/Col";
+// import SearchForm from "../components/SearchForm/SearchForm";
+// import SearchResults from "../components/SearchResults/SearchResults";
+// import Row from "../components/Row/Row";
+// import Col from "../components/Col/Col";
 import API from "../utils/API";
-import { Redirect } from "react-router-dom";
+import axios from "axios";
 
 class Search extends Component {
   state = {
     search: "",
     employees: [],
-    results: [],
     error: "",
   };
 
+  // componentDidMount() {
+  //   // axios.get("https://randomuser.me/api/?results=50")
+  //   // .then(res => {
+  //   //   console.log(res.data.results);
+  //   // })
+
+  // }
+
   componentDidMount() {
-    API.getEmployeeData()
-      .then((res) =>
-        this.setState({
-          employees: res.data.results,
-        })
-      )
-      .catch((err) => console.log(err));
+    this.getEmployees(100);
   }
 
-  handleInputChange = (event) => {
-    this.setState({
-      search: event.target.value,
-    });
+  getEmployees = (query) => {
+  API.getEmployeeData(query)
+    .then(res => 
+      this.setState({
+        employees: res.data.results,
+      }),
+      )
+    .catch((err) => console.log(err));
   };
+
+
+  // handleInputChange = (event) => {
+  //   this.setState({
+  //     search: event.target.value,
+  //   });
+  // };
 
 //   handleSubmitForm = (event) => {
 //     event.preventDefault();
@@ -49,14 +61,11 @@ class Search extends Component {
 
   render() {
     return (
-      <Container>
-        <SearchForm
-          handleFormSubmit={this.handleFormSubmit}
-          handleInputChange={this.handleInputChange}
-          employees={this.state.employees}
-        />
-        <SearchResults results={this.state.results} />
-      </Container>
+        <ul>
+          {this.state.employees.map(employee => {
+           return <li key={employee.email}>{employee.name.first}</li>
+          })}
+        </ul>
     );
   }
 }
