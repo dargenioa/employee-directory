@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import Container from "../components/Container/Container";
-// import SearchForm from "../components/SearchForm/SearchForm";
+// import Container from "../components/Container/Container";
+import SearchForm from "../components/SearchForm/SearchForm";
 // import SearchResults from "../components/SearchResults/SearchResults";
 // import Row from "../components/Row/Row";
 // import Col from "../components/Col/Col";
 import API from "../utils/API";
-import axios from "axios";
 
 class Search extends Component {
   state = {
@@ -19,7 +18,6 @@ class Search extends Component {
   //   // .then(res => {
   //   //   console.log(res.data.results);
   //   // })
-
   // }
 
   componentDidMount() {
@@ -27,15 +25,14 @@ class Search extends Component {
   }
 
   getEmployees = (query) => {
-  API.getEmployeeData(query)
-    .then(res => 
-      this.setState({
-        employees: res.data.results,
-      }),
+    API.getEmployeeData(query)
+      .then((res) =>
+        this.setState({
+          employees: res.data.results,
+        })
       )
-    .catch((err) => console.log(err));
+      .catch((err) => console.log(err));
   };
-
 
   // handleInputChange = (event) => {
   //   this.setState({
@@ -43,29 +40,32 @@ class Search extends Component {
   //   });
   // };
 
-//   handleSubmitForm = (event) => {
-//     event.preventDefault();
-//     API.getEmployeeData(this.state.search)
-//       .then((res) => {
-//         this.setState({
-//           results: res.data.results,
-//           error: "",
-//         });
-//       })
-//       .catch((err) =>
-//         this.setState({
-//           error: err.message,
-//         })
-//       );
-//   };
+  //   handleSubmitForm = (event) => {
+  //     event.preventDefault();
+  //     API.getEmployeeData(this.state.search)
+  //       .then((res) => {
+  //         this.setState({
+  //           results: res.data.results,
+  //           error: "",
+  //         });
+  //       })
+  //       .catch((err) =>
+  //         this.setState({
+  //           error: err.message,
+  //         })
+  //       );
+  //   };
 
   render() {
     return (
+      <div>
+        <SearchForm />,
         <ul>
-          {this.state.employees.map(employee => {
-           return <li key={employee.email}>{employee.name.first}</li>
+          {this.state.employees.map((employee) => {
+            return <li key={employee.email}>{employee.name.first}</li>;
           })}
         </ul>
+      </div>
     );
   }
 }
