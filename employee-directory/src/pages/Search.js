@@ -10,7 +10,6 @@ class Search extends Component {
   state = {
     search: "",
     employees: [],
-    error: "",
   };
 
   // componentDidMount() {
@@ -34,32 +33,33 @@ class Search extends Component {
       .catch((err) => console.log(err));
   };
 
-  // handleInputChange = (event) => {
-  //   this.setState({
-  //     search: event.target.value,
-  //   });
-  // };
+  handleInputChange = (event) => {
+    this.setState({
+      search: event.target.value,
+    });
+  };
 
-  //   handleSubmitForm = (event) => {
-  //     event.preventDefault();
-  //     API.getEmployeeData(this.state.search)
-  //       .then((res) => {
-  //         this.setState({
-  //           results: res.data.results,
-  //           error: "",
-  //         });
-  //       })
-  //       .catch((err) =>
-  //         this.setState({
-  //           error: err.message,
-  //         })
-  //       );
-  //   };
+    handleSubmitForm = (event) => {
+      event.preventDefault();
+      API.getEmployees(100)
+        .then((res) => {
+          this.setState({
+            employees: res.data.results,
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+        }
+        );
+    };
 
   render() {
     return (
       <div>
-        <SearchForm />,
+        <SearchForm 
+        onChange={this.handleInputChange}
+        
+        />,
         <Container>
           <Row>
             <Col size="md-12">
@@ -72,7 +72,7 @@ class Search extends Component {
                         src={employee.picture.medium}
                       ></img>
                     </Col>
-                    <Col size="md-3">
+                    <Col size="md-2">
                       <p key={employee.id.value}>
                         {employee.name.first} {employee.name.last}
                       </p>
@@ -80,6 +80,16 @@ class Search extends Component {
                     <Col size="md-3">
                       <p key={employee.id.value}>
                         {employee.email}
+                      </p>
+                    </Col>
+                    <Col size="md-2">
+                      <p key={employee.id.value}>
+                        {employee.cell}
+                      </p>
+                    </Col>
+                    <Col size="md-2">
+                      <p key={employee.id.value}>
+                        {employee.location.city}, {employee.location.state}
                       </p>
                     </Col>
                   </Row>
