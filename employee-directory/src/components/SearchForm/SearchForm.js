@@ -14,7 +14,7 @@ function SearchForm(props) {
         ></input>
         <button
           type="submit"
-          onClick={props.handleFormSubmit}
+          onClick={props.handleSubmitForm}
           className="btn btn-success"
         >
           Search

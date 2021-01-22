@@ -5,11 +5,13 @@ import SearchForm from "../components/SearchForm/SearchForm";
 import Row from "../components/Row/Row";
 import Col from "../components/Col/Col";
 import API from "../utils/API";
+import "@babel/polyfill";
 
 class Search extends Component {
   state = {
     search: "",
     employees: [],
+    searchResults: []
   };
 
   // componentDidMount() {
@@ -28,6 +30,7 @@ class Search extends Component {
       .then((res) =>
         this.setState({
           employees: res.data.results,
+          search: res.data.results,
         })
       )
       .catch((err) => console.log(err));
@@ -39,27 +42,28 @@ class Search extends Component {
     });
   };
 
-    handleSubmitForm = (event) => {
-      event.preventDefault();
-      API.getEmployees(100)
-        .then((res) => {
-          this.setState({
-            employees: res.data.results,
-          });
+  handleSubmitForm = (event) => {
+    event.preventDefault();
+    const results = this.state.employees.filter(employee => employee.contains(this.state.search))
+      .then(
+        this.setState({
+          searchResults: results,
         })
-        .catch((err) => {
-          console.log(err);
-        }
-        );
-    };
+      )
+      .catch((err) => {
+        console.log(err);
+      })
+  };
 
   render() {
     return (
       <div>
-        <SearchForm 
-        onChange={this.handleInputChange}
-        
-        />,
+        <SearchForm
+          value={this.state.search}
+          handleInputChange={this.handleInputChange}
+          handleSubmitForm={this.handleSubmitForm}
+        />
+        ,
         <Container>
           <Row>
             <Col size="md-12">
@@ -70,6 +74,7 @@ class Search extends Component {
                       <img
                         alt="portrait"
                         src={employee.picture.medium}
+                        key={employee.id.value}
                       ></img>
                     </Col>
                     <Col size="md-2">
@@ -78,14 +83,10 @@ class Search extends Component {
                       </p>
                     </Col>
                     <Col size="md-3">
-                      <p key={employee.id.value}>
-                        {employee.email}
-                      </p>
+                      <p key={employee.id.value}>{employee.email}</p>
                     </Col>
                     <Col size="md-2">
-                      <p key={employee.id.value}>
-                        {employee.cell}
-                      </p>
+                      <p key={employee.id.value}>{employee.cell}</p>
                     </Col>
                     <Col size="md-2">
                       <p key={employee.id.value}>
