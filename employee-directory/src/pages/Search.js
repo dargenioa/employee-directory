@@ -10,7 +10,7 @@ class Search extends Component {
   state = {
     search: "",
     employees: [],
-    searchResults: []
+    searchResults: [],
   };
 
   // componentDidMount() {
@@ -30,7 +30,6 @@ class Search extends Component {
         this.setState({
           employees: res.data.results,
           searchResults: res.data.results,
-          
         })
       )
       .catch((err) => console.log(err));
@@ -40,7 +39,7 @@ class Search extends Component {
     this.setState({
       search: event.target.value,
     });
-  }
+  };
   //   .then()
   //     const results = this.state.employees.filter(employee => {
   //       let searchEmployee = Object.values(employee)
@@ -57,43 +56,45 @@ class Search extends Component {
 
   handleSubmitForm = (event) => {
     event.preventDefault();
-    const results = this.state.employees.filter(employee => {
-      return employee.name.first.toLowerCase().includes(this.state.search) ||
-      employee.name.last.toLowerCase().includes(this.state.search) ||
-      employee.email.toLowerCase().includes(this.state.search) ||
-      employee.location.city.toLowerCase().includes(this.state.search) ||
-      employee.location.state.toLowerCase().includes(this.state.search) ||
-      employee.cell.toLowerCase().includes(this.state.search);
+    const results = this.state.employees.filter((employee) => {
+      return (
+        employee.name.first.toLowerCase().includes(this.state.search) ||
+        employee.name.last.toLowerCase().includes(this.state.search) ||
+        employee.email.toLowerCase().includes(this.state.search) ||
+        employee.location.city.toLowerCase().includes(this.state.search) ||
+        employee.location.state.toLowerCase().includes(this.state.search) ||
+        employee.cell.toLowerCase().includes(this.state.search)
+      );
     });
     console.log(results);
     this.setState({
-      searchResults: results
-    })
-    
-         // const results = {
+      searchResults: results,
+    });
+
+    // const results = {
     //   employees: Object.values(this.state.employees)
     // };
     // //
     // results.filter((employee) => employee.includes(this.state.search))
     // .then(
-      // this.setState({
-      //       searchResults: results,
-      //     });
+    // this.setState({
+    //       searchResults: results,
+    //     });
     // .catch((err) => {
     //     console.log(err);
     //   })
-    
+
     // console.log(results);
-    
+
     // this.state.employees.filter(employee => employee.contains(this.state.search))
-      // .then(
-      //   this.setState({
-      //     searchResults: results,
-      //   })
-      // )
-      // .catch((err) => {
-      //   console.log(err);
-      // })
+    // .then(
+    //   this.setState({
+    //     searchResults: results,
+    //   })
+    // )
+    // .catch((err) => {
+    //   console.log(err);
+    // })
   };
 
   render() {
@@ -103,7 +104,7 @@ class Search extends Component {
           value={this.state.search}
           handleInputChange={this.handleInputChange}
           handleSubmitForm={this.handleSubmitForm}
-        />
+        ></SearchForm>
         ,
         <Container>
           <Row>
@@ -111,14 +112,16 @@ class Search extends Component {
               {this.state.searchResults.map((employee) => {
                 return (
                   <Row>
-                    <Col size="md-2">
+                    <Col size="md-1">
                       <img
+                        className="border border-dark rounded"
                         alt="portrait"
                         src={employee.picture.medium}
                         key={employee.login.uuid}
+                        style={{ marginBottom: "10px" }}
                       ></img>
                     </Col>
-                    <Col size="md-2">
+                    <Col size="md-3">
                       <p key={employee.login.uuid}>
                         {employee.name.first} {employee.name.last}
                       </p>
@@ -126,7 +129,7 @@ class Search extends Component {
                     <Col size="md-3">
                       <p key={employee.login.uuid}>{employee.email}</p>
                     </Col>
-                    <Col size="md-2">
+                    <Col size="md-3">
                       <p key={employee.login.uuid}>{employee.cell}</p>
                     </Col>
                     <Col size="md-2">

@@ -1,3 +1,5 @@
+import "./search.css";
+
 function SearchForm(props) {
   return (
     <form className="search">
@@ -9,16 +11,32 @@ function SearchForm(props) {
           list="employees"
           type="text"
           className="form-control"
-          placeholder="Type in the employee details to begin"
+          placeholder="Search by First or Last Name, Email, Cell, City or State"
           id="employee"
         ></input>
-        <button
-          type="submit"
-          onClick={props.handleSubmitForm}
-          className="btn btn-success"
-        >
-          Search
-        </button>
+        <br></br>
+        <div>
+          <button
+            type="submit"
+            onClick={props.handleSubmitForm}
+            className="btn btn-dark btn-center"
+            style={{backgroundColor: "rgb(158, 52, 235)"}}
+          >
+            Search
+          </button>
+        </div>
+        <br>
+        </br>
+        <div>
+          <button
+            type="submit"
+            onClick={props.handleSubmitForm}
+            className="btn btn-dark btn-center"
+            style={{backgroundColor: "rgb(158, 52, 235)"}}
+          >
+            Sort
+          </button>
+        </div>
       </div>
     </form>
   );

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor: "rgb(158, 52, 235)"}}>
       <Link className="navbar-brand" to="/">
         Employee Directory
       </Link>
