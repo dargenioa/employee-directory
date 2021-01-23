@@ -37,6 +37,18 @@ function SearchForm(props) {
             Sort by Name A-Z
           </button>
         </div>
+        <br>
+        </br>
+        <div>
+          <button
+            type="submit"
+            onClick={props.newSearch}
+            className="btn btn-dark btn-center"
+            style={{backgroundColor: "rgb(158, 52, 235)"}}
+          >
+            Start a New Search
+          </button>
+        </div>
       </div>
     </form>
   );

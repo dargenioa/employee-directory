@@ -83,6 +83,14 @@ class Search extends Component {
     });
   };
 
+  newSearch = (event) => {
+    event.preventDefault();
+    this.setState({
+      search: "",
+      searchResults: this.state.employees
+    });
+  };
+
   // const results = {
   //   employees: Object.values(this.state.employees)
   // };
@@ -116,6 +124,7 @@ class Search extends Component {
           handleInputChange={this.handleInputChange}
           handleSubmitForm={this.handleSubmitForm}
           handleSort={this.handleSort}
+          newSearch={this.newSearch}
         ></SearchForm>
         ,
         <Container>
