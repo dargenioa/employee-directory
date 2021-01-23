@@ -5,6 +5,7 @@ import Row from "../components/Row/Row";
 import Col from "../components/Col/Col";
 import API from "../utils/API";
 
+
 class Search extends Component {
   state = {
     search: "",
@@ -86,10 +87,9 @@ class Search extends Component {
     event.preventDefault();
     this.setState({
       search: "",
-      searchResults: this.state.employees
+      searchResults: this.state.employees,
     });
   };
-
 
   render() {
     return (
@@ -104,9 +104,36 @@ class Search extends Component {
         <Container>
           <Row>
             <Col size="md-12">
+              <Row style={{backgroundColor: "rgb(158, 52, 235)", padding: "0px", marginBottom: "10px", }}>
+                <Col size="md-1">
+                  <div>
+                    <h3 style={{color: "white"}}>Image</h3>
+                  </div>
+                </Col>
+                <Col size="md-3">
+                  <div>
+                    <h3 style={{color: "white"}}>Name</h3>
+                  </div>
+                </Col>
+                <Col size="md-3">
+                  <div>
+                    <h3 style={{color: "white"}}>Email</h3>
+                  </div>
+                </Col>
+                <Col size="md-3">
+                  <div>
+                    <h3 style={{color: "white"}}>Cell</h3>
+                  </div>
+                </Col>
+                <Col size="md-2">
+                  <div>
+                    <h3 style={{color: "white"}}>Location</h3>
+                  </div>
+                </Col>
+              </Row>
               {this.state.searchResults.map((employee) => {
                 return (
-                  <Row>
+                  <Row id="results">
                     <Col size="md-1">
                       <img
                         className="border border-dark rounded"
