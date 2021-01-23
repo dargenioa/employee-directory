@@ -9,9 +9,11 @@ function Landing() {
         <Row>
           <Col size="md-12">
             <img
+            className="img-fluid"
               alt="employees"
               src="https://hrtechweekly.files.wordpress.com/2017/12/img-1.jpeg?w=822"
               style={{ padding: "10px 10px" }}
+              
             ></img>
           </Col>
         </Row>
