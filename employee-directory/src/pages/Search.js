@@ -101,7 +101,6 @@ class Search extends Component {
           handleSort={this.handleSort}
           newSearch={this.newSearch}
         ></SearchForm>
-        ,
         <Container>
           <Row>
             <Col size="md-12">

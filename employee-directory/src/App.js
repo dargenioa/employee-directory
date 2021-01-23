@@ -11,7 +11,8 @@ function App() {
     <Router>
       <NavBar />
       <Wrapper>
-      <Route exact path="/" component={Landing} />
+        <Route exact path="/" component={Landing} />
+        <Route exact path="/employeeDirectory" component={Landing} />
         <Route exact path="/search" component={Search} />
       </Wrapper>
     </Router>
