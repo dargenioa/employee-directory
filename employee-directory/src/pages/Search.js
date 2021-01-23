@@ -57,12 +57,12 @@ class Search extends Component {
     event.preventDefault();
     const results = this.state.employees.filter((employee) => {
       return (
-        employee.name.first.toLowerCase().includes(this.state.search) ||
-        employee.name.last.toLowerCase().includes(this.state.search) ||
-        employee.email.toLowerCase().includes(this.state.search) ||
-        employee.location.city.toLowerCase().includes(this.state.search) ||
-        employee.location.state.toLowerCase().includes(this.state.search) ||
-        employee.cell.toLowerCase().includes(this.state.search)
+        employee.name.first.includes(this.state.search) ||
+        employee.name.last.includes(this.state.search) ||
+        employee.email.includes(this.state.search) ||
+        employee.location.city.includes(this.state.search) ||
+        employee.location.state.includes(this.state.search) ||
+        employee.cell.includes(this.state.search)
       );
     });
     console.log(results);
