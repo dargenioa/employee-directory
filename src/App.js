@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { HashRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar";
 import Wrapper from "./components/Wrapper/Wrapper";
 import Search from "./pages/Search";
@@ -8,7 +8,7 @@ import Landing from "./pages/Landing";
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <NavBar />
       <Wrapper>
         <Route exact path="/" component={Landing} />
