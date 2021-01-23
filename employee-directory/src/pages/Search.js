@@ -70,32 +70,43 @@ class Search extends Component {
     this.setState({
       searchResults: results,
     });
-
-    // const results = {
-    //   employees: Object.values(this.state.employees)
-    // };
-    // //
-    // results.filter((employee) => employee.includes(this.state.search))
-    // .then(
-    // this.setState({
-    //       searchResults: results,
-    //     });
-    // .catch((err) => {
-    //     console.log(err);
-    //   })
-
-    // console.log(results);
-
-    // this.state.employees.filter(employee => employee.contains(this.state.search))
-    // .then(
-    //   this.setState({
-    //     searchResults: results,
-    //   })
-    // )
-    // .catch((err) => {
-    //   console.log(err);
-    // })
   };
+
+  handleSort = (event) => {
+    event.preventDefault();
+    const sortEmployees = this.state.searchResults.sort((a, b) => {
+      return a.name.first.localeCompare(b.name.first);
+    });
+    console.log(sortEmployees);
+    this.setState({
+      searchResults: sortEmployees,
+    });
+  };
+
+  // const results = {
+  //   employees: Object.values(this.state.employees)
+  // };
+  // //
+  // results.filter((employee) => employee.includes(this.state.search))
+  // .then(
+  // this.setState({
+  //       searchResults: results,
+  //     });
+  // .catch((err) => {
+  //     console.log(err);
+  //   })
+
+  // console.log(results);
+
+  // this.state.employees.filter(employee => employee.contains(this.state.search))
+  // .then(
+  //   this.setState({
+  //     searchResults: results,
+  //   })
+  // )
+  // .catch((err) => {
+  //   console.log(err);
+  // })
 
   render() {
     return (
@@ -104,6 +115,7 @@ class Search extends Component {
           value={this.state.search}
           handleInputChange={this.handleInputChange}
           handleSubmitForm={this.handleSubmitForm}
+          handleSort={this.handleSort}
         ></SearchForm>
         ,
         <Container>

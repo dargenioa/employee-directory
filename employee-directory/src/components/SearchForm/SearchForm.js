@@ -30,11 +30,11 @@ function SearchForm(props) {
         <div>
           <button
             type="submit"
-            onClick={props.handleSubmitForm}
+            onClick={props.handleSort}
             className="btn btn-dark btn-center"
             style={{backgroundColor: "rgb(158, 52, 235)"}}
           >
-            Sort
+            Sort by Name A-Z
           </button>
         </div>
       </div>
