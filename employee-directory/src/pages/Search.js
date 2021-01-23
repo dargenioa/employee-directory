@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Container from "../components/Container/Container";
 import SearchForm from "../components/SearchForm/SearchForm";
-// import SearchResults from "../components/SearchResults/SearchResults";
 import Row from "../components/Row/Row";
 import Col from "../components/Col/Col";
 import API from "../utils/API";
@@ -91,30 +90,6 @@ class Search extends Component {
     });
   };
 
-  // const results = {
-  //   employees: Object.values(this.state.employees)
-  // };
-  // //
-  // results.filter((employee) => employee.includes(this.state.search))
-  // .then(
-  // this.setState({
-  //       searchResults: results,
-  //     });
-  // .catch((err) => {
-  //     console.log(err);
-  //   })
-
-  // console.log(results);
-
-  // this.state.employees.filter(employee => employee.contains(this.state.search))
-  // .then(
-  //   this.setState({
-  //     searchResults: results,
-  //   })
-  // )
-  // .catch((err) => {
-  //   console.log(err);
-  // })
 
   render() {
     return (
