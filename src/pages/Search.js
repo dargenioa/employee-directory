@@ -5,7 +5,7 @@ import Row from "../components/Row/Row";
 import Col from "../components/Col/Col";
 import API from "../utils/API";
 
-
+//creating class component for search
 class Search extends Component {
   state = {
     search: "",
@@ -13,17 +13,13 @@ class Search extends Component {
     searchResults: [],
   };
 
-  // componentDidMount() {
-  //   // axios.get("https://randomuser.me/api/?results=50")
-  //   // .then(res => {
-  //   //   console.log(res.data.results);
-  //   // })
-  // }
-
+//render a list of 100 random generated users
   componentDidMount() {
     this.getEmployees(100);
   }
 
+  // //function for api call to set the state of employees and
+  // search results to the same array of users
   getEmployees = (query) => {
     API.getEmployeeData(query)
       .then((res) =>
@@ -35,25 +31,15 @@ class Search extends Component {
       .catch((err) => console.log(err));
   };
 
+  //handles the change of state to get the search term
   handleInputChange = (event) => {
     this.setState({
       search: event.target.value,
     });
   };
-  //   .then()
-  //     const results = this.state.employees.filter(employee => {
-  //       let searchEmployee = Object.values(employee)
-  //       .join("")
-  //       .toLowerCase();
-  //       return searchEmployee.indexOf(this.state.search.toLowerCase() !== -1);
-  //     })
-  //     .then(
-  //       this.setState({
-  //         searchResults: results
-  //       })
-  //     )
-  // };
-
+  
+// //handles the click event to filter through employees and update the state of
+// searchResults based on the search term
   handleSubmitForm = (event) => {
     event.preventDefault();
     const results = this.state.employees.filter((employee) => {
@@ -72,6 +58,7 @@ class Search extends Component {
     });
   };
 
+  //hanlde the  onClick to sortusersbyfirst name a-z
   handleSort = (event) => {
     event.preventDefault();
     const sortEmployees = this.state.searchResults.sort((a, b) => {
@@ -83,6 +70,8 @@ class Search extends Component {
     });
   };
 
+  // //hanldes the click event to change the search term  and searchResults to
+  // the beginning to starta new search on the existing array saved to employees
   newSearch = (event) => {
     event.preventDefault();
     this.setState({
@@ -91,6 +80,10 @@ class Search extends Component {
     });
   };
 
+  // //this renders the table of employees saved to searchResults that is never empty
+  // and includes the same array as the employee's array or the filters employees based
+  // on search using .map
+  // using the grid in bootstrap for the table allows it to be mobile responsive
   render() {
     return (
       <div>
@@ -104,6 +97,7 @@ class Search extends Component {
         <Container>
           <Row>
             <Col size="md-12">
+              {/* table header */}
               <Row style={{backgroundColor: "rgb(158, 52, 235)", padding: "0px", marginBottom: "10px", }}>
                 <Col size="md-1">
                   <div>

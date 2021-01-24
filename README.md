@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# employeeDirectory ![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+1. [Description](#description)
+1. [Video Demo](#videodemo)
+1. [Installation](#installation)
+1. [Usage](#usage)
+1. [License](#license)
+1. [Contributing](#contributing)
+1. [Tests](#tests)
+1. [Deply](#deploy)
+1. [Questions](#questions)
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+employeeDirectory is a React application that allows a user to view their entiree employee directory as soon as the page loads.  This allows the user to have quick access to important employee information including their first and last name, email,cell and location (city and state).  The rendered table of employees also includes their photo.  The table of employees can be searched by either providing a full search term such as the complete first name,  or only a few characters that will render the employee that has that information included in their name, email, phone or location.  The lisit can be sorted by the employees first name alphabetically.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## VideoDemo
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![](./public/images/employeeDirectoryDemo.gif)
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This is a single page application using React.  The dependencies installed  using npm are axios, react-router-dom and boostrap for styling.  Axios is used to gather the information from the Random User Generator API key.
 
-### `npm run build`
+## Usage
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This application is a great wayto generate and sort through user data.  To get started with the application, visit the gh-pagese link included at the bottom of this readme.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  <img src="./public/images/hompage.png" alt="ed-homepage">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  <img src="./public/images/searchbar.png" alt="searchbar">
 
-### `npm run eject`
+   <img src="./public/images/sortnamea-z.png" alt="sort">
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## License
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+[The Unlicense](http://unlicense.org/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+This project is licensed under [The Unlicense](http://unlicense.org/). Please visit the link for more details.
 
-## Learn More
+## Contributing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+There were no contributors on this project, but collaboration is welcome. Please feel free to reach out to me regarding changes to the application by creating an issue in Github or contacting me through email.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Tests
 
-### Code Splitting
+Each employee is tracked with a uinique id saved to the key attribute. This application uses state management for the state of the employees, searchbar and search results.  Use React Dev Tools for a views of their states.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   <img src="./public/images/classcomponent.png" alt="classcomponent">
 
-### Analyzing the Bundle Size
+## Deploy
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+[Click here to access the deployed application](https://dargenioa.github.io/employeeDirectory/)
+  
+## Questions
 
-### Making a Progressive Web App
+**Github:** [dargenioa](http://github.com/dargenioa)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+**Email:** [dargenioa14@gmail.com](dargenioa14@gmail.com)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+For additional questions please feel free to contact me.
