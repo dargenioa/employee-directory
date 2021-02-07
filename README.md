@@ -9,7 +9,7 @@
 1. [License](#license)
 1. [Contributing](#contributing)
 1. [Tests](#tests)
-1. [Deply](#deploy)
+1. [Depl0y](#deploy)
 1. [Questions](#questions)
 
 ## Description
@@ -26,7 +26,7 @@ This is a single page application using React.  The dependencies installed  usin
 
 ## Usage
 
-This application is a great wayto generate and sort through user data.  To get started with the application, visit the gh-pagese link included at the bottom of this readme.
+This application is a great way to generate and sort through user data.  To get started with the application, visit the gh-pagese link included at the bottom of this readme.
 
   <img src="./public/images/hompage.png" alt="ed-homepage">
 
