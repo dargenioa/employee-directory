@@ -9,7 +9,7 @@
 1. [License](#license)
 1. [Contributing](#contributing)
 1. [Tests](#tests)
-1. [Depl0y](#deploy)
+1. [Deploy](#deploy)
 1. [Questions](#questions)
 
 ## Description
